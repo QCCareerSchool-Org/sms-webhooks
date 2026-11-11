@@ -11,8 +11,8 @@
     "target": "esnext",
     // For nodejs:
     "lib": ["esnext"],
-    "types": ["node"],
-    // and npm install -D @types/node
+    // Node types are pulled in by @types/express. Don't list them in "types":
+    // Vercel's TypeScript 7 transpile step can't resolve that entry (TS2688).
 
     // Other Outputs
     "sourceMap": true,
