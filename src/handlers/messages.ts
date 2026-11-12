@@ -1,9 +1,9 @@
-import type { Request, Response } from 'express';
+import type { Request, RequestHandler, Response } from 'express';
 import twilio from 'twilio';
 
 import { sendEmail } from '../adapters/email.js';
 
-export const messagesHandler = async (req: Request, res: Response): Promise<void> => {
+export const messagesHandler: RequestHandler = async (req, res) => {
   console.log(req.body);
 
   // Wait for the email before responding: Vercel can freeze the function once

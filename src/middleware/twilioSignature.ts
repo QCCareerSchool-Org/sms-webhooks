@@ -1,4 +1,4 @@
-import type { NextFunction, Request, Response } from 'express';
+import type { RequestHandler } from 'express';
 import twilio from 'twilio';
 
 /**
@@ -8,7 +8,7 @@ import twilio from 'twilio';
  * Needs `app.set('trust proxy', true)` so req.protocol is the public https
  * scheme Twilio signed, not the internal one.
  */
-export const validateTwilioSignature = (req: Request, res: Response, next: NextFunction): void => {
+export const twilioSignatureMiddleware: RequestHandler = (req, res, next) => {
   const authToken = process.env.TWILIO_AUTH_TOKEN;
   if (!authToken) {
     throw new Error('Missing environment variable TWILIO_AUTH_TOKEN');
