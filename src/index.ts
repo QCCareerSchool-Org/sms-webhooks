@@ -1,8 +1,7 @@
 import express from 'express';
 
 import { messagesHandler } from './handlers/messages.js';
-import { stopMiddleware } from './middleware/stop.js';
-import { twilioSignatureMiddleware } from './middleware/twilioSignature.js';
+import { checkSignatureMiddleware } from './middleware/checkSignature.js';
 
 const app = express();
 
@@ -13,8 +12,7 @@ app.set('trust proxy', true);
 // Twilio uses form-encoded posts
 app.use(express.urlencoded({ extended: true }));
 
-app.use(twilioSignatureMiddleware);
-app.use(stopMiddleware);
+app.use(checkSignatureMiddleware);
 
 app.post('/messages', messagesHandler);
 
