@@ -1,8 +1,8 @@
 import express from 'express';
 
 import { messagesHandler } from './handlers/messages.js';
-import { twilioSignatureMiddleware } from './middleware/twilioSignature.js';
 import { stopMiddleware } from './middleware/stop.js';
+import { twilioSignatureMiddleware } from './middleware/twilioSignature.js';
 
 const app = express();
 

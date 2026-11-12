@@ -1,4 +1,4 @@
-import type { Request, RequestHandler, Response } from 'express';
+import type { RequestHandler } from 'express';
 import twilio from 'twilio';
 
 import { sendEmail } from '../adapters/email.js';
