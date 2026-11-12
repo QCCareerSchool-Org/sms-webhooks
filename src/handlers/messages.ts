@@ -1,8 +1,8 @@
 import type { RequestHandler } from 'express';
 import twilio from 'twilio';
 
-import { sendEmail } from '../adapters/email.js';
-import { twilioMessageSchema } from '../validation/twilioMessage.js';
+import { twilioMessageSchema } from '../domain/twilioMessage.js';
+import { sendEmail } from '../services/email.js';
 
 // Senders we auto-unsubscribe from by replying STOP.
 const AUTO_STOP_SENDERS = new Set([ '66377' ]);
