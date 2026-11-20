@@ -36,5 +36,8 @@ export const sendEmail = async ({ subject, text }: Email): Promise<void> => {
     to: requireEnv('EMAIL_TO'),
     subject,
     text,
+    headers: {
+      'X-Mailgun-Track': 'no',
+    },
   });
 };
